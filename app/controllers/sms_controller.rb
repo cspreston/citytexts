@@ -8,8 +8,7 @@ class SmsController < ApplicationController
 		@client = Twilio::REST::Client.new(Rcplugin::TWILIO_ACCOUNT, Rcplugin::TWILIO_TOKENID)
 		@account = @client.account
 		@message = @account.sms.messages.create({:from => '+13125480077', :to => @to, :body => @body})					
-		puts @message
-		render "Message Sent Successfully"
+		puts @message		
 	end
 
 end
