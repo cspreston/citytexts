@@ -2,6 +2,10 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+require 'base64'
+require 'openssl'
+require 'uri'
+
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
@@ -10,6 +14,10 @@ if defined?(Bundler)
 end
 
 module Rcplugin
+
+  THE_CITY_SECRET = 'c34e4f9fe8d6f2bfc61720335156b8aa7e59f24d7c08df58e903e8092eb69992'
+  THE_CITY_APP_ID = 'a4e6b4ba102d4473ed9df65ef541362b666723997d18bfdaff7ce0d37a7a2886'
+
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -58,5 +66,28 @@ module Rcplugin
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+  end
+end
+
+module TheCityoAuth
+  module Plugin
+
+    def self.decrypt_city_data(city_data, city_data_iv, secret)
+      if !city_data.nil?
+        string_to_decrypt = Base64.urlsafe_decode64(city_data)
+        iv = Base64.urlsafe_decode64(city_data_iv)
+        return city_decrypt(string_to_decrypt, secret, iv)
+      else
+        return {}
+      end
+    end
+
+    def self.city_decrypt(encrypted_data, key, iv, cipher_type = "AES-256-CBC")
+      aes = OpenSSL::Cipher::Cipher.new(cipher_type)
+      aes.decrypt
+      aes.key = key
+      aes.iv = iv if iv != nil
+      aes.update(encrypted_data) + aes.final
+    end
   end
 end
