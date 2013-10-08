@@ -1,3 +1,7 @@
+require 'base64'
+require 'openssl'
+require 'uri'
+
 module RcAuth
 	def self.decrypt_city_data(city_data, city_data_iv, secret)
 		if !city_data.nil?
