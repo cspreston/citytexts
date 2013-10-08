@@ -23,6 +23,7 @@ gem 'execjs'
 gem 'jquery-rails'
 
 gem 'thecity'
+gem 'twilio-ruby'
 
 group :production do
   gem 'pg'
