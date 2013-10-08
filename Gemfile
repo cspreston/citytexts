@@ -22,6 +22,8 @@ end
 gem 'execjs' 
 gem 'jquery-rails'
 
+gem 'thecity'
+
 group :production do
   gem 'pg'
 end
