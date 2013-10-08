@@ -1,2 +1,8 @@
 <h2>Hey <%= @name %></h2>
 <h3>Welcome to Two Rivers Mail Plugin</h3>
+<div id="msgDiv">
+	<%= form_tag("/send", method: "post") do %>
+		<%= text_area_tag(:message, "Enter Message Here", size: "24x6") %>
+		<%= submit_tag("Search") %>
+	<% end %>
+</div>
