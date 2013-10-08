@@ -2,7 +2,8 @@ Rcplugin::Application.routes.draw do
 
 
   root :to => 'static#index'
-  match 'callback'  => 'crypt#decrypt_city_data'
+  
+  match 'send' => 'sms#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
