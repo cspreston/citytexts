@@ -23,7 +23,6 @@ gem 'execjs'
 gem 'jquery-rails'
 
 gem 'thecity'
-gem 'the-city-admin', :require => 'the_city_admin'
 gem 'twilio-ruby'
 
 group :production do

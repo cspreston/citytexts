@@ -1,6 +1,6 @@
 require 'the_city'
 require 'rc_auth'
-require 'the-city-admin'
+require 'the_city_admin'
 class StaticController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
@@ -24,8 +24,8 @@ class StaticController < ApplicationController
 	end
 
 	def user_service
-		TheCity::AdminApi.connect(Rcplugin::CITY_ADMIN_SECRET,Rcplugin::CITY_USER_TOKEN)
-		@group = TheCity::GroupList.new
+		TheCityAdmin::AdminApi.connect(Rcplugin::CITY_ADMIN_SECRET,Rcplugin::CITY_USER_TOKEN)
+		@group = TheCityAdmin::GroupList.new
 	end
 
 end
