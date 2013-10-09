@@ -17,6 +17,9 @@ module Rcplugin
     TWILIO_ACCOUNT = 'ACe0befca5306e1c165d5229a7cec1a9a9'
     TWILIO_TOKENID = '2e33b6f5b51fd91e4ea0f02208d3e8c1'
 
+    CITY_ADMIN_SECRET = '147f288ffc5b9a2cbdbfb204096d8cd53ff1a469'
+    CITY_USER_TOKEN = '5aaff4c459210be0'
+
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

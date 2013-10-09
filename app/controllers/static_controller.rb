@@ -20,6 +20,11 @@ class StaticController < ApplicationController
 
 		@me = @client.me
 		@name = @me.name
-
 	end
+
+	def user_service
+		TheCity::AdminApi.connect(Rcplugin::CITY_ADMIN_SECRET,Rcplugin::CITY_USER_TOKEN)
+		@group = TheCity::GroupList.new
+	end
+
 end
