@@ -24,6 +24,7 @@ gem 'jquery-rails'
 
 gem 'thecity'
 gem 'twilio-ruby'
+gem 'typhoeus'
 
 group :production do
   gem 'pg'

@@ -4,6 +4,7 @@ Rcplugin::Application.routes.draw do
   root :to => 'static#index'
   
   match 'send' => 'sms#index'
+  match 'test', to: 'static#user_service'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
