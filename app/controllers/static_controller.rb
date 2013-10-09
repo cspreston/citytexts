@@ -1,5 +1,6 @@
 require 'the_city'
 require 'rc_auth'
+require 'the-city-admin'
 class StaticController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
